@@ -6,9 +6,9 @@ import { Navigate } from 'react-router-dom';
 const ProtectedRoute = (Component) => {
   const Wrapper = (props) => {
     const token = Cookies.get('Jwt_Token');
-    const userId = Cookies.get('userId');
+    const userRole = Cookies.get('userRole');
 
-    if (!token || userId!=="buyer") {
+    if (!token || userRole!=="buyer") {
       return <Navigate to="/login" replace />;
     }
 
