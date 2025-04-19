@@ -9,6 +9,7 @@ const AdminBulkOrders = () => {
   const [editOrderId, setEditOrderId] = useState(null);
   const [loading, setLoading] = useState(false);
   const token = Cookies.get('Jwt_Token');
+  const userId = Cookies.get('userId');
 
   const fetchBulkOrders = async () => {
     setLoading(true);
@@ -30,7 +31,7 @@ const AdminBulkOrders = () => {
     try {
       await axios.put(
         `https://agrobackend-sptw.onrender.com/api/admin/orders/${orderId}`,
-        { status: newStatus },
+        { status: newStatus,user_id:userId },
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -104,7 +105,7 @@ const AdminBulkOrders = () => {
                 >
                   <option value="Pending">Pending</option>
                   <option value="In Progress">In Progress</option>
-                  <option value="Delivered">Delivered</option>
+                  <option value="Completed">Completed</option>
                 </select>
                 {editOrderId === order.order_id ? (
                   <button

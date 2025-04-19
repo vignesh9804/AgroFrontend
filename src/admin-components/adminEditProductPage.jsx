@@ -128,8 +128,8 @@ const EditProductPage = () => {
         className="w-full p-2 mb-6 border border-gray-300 rounded"
       >
         <option value="">-- Select Type --</option>
-        <option value="fruit">Fruit</option>
-        <option value="vegetable">Vegetable</option>
+        <option value="fruits">Fruits</option>
+        <option value="vegetables">Vegetables</option>
       </select>
 
       <button

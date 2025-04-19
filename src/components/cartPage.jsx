@@ -2,9 +2,9 @@ import React, { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import { MdDelete } from 'react-icons/md';
-import { toast, ToastContainer } from 'react-toastify'; // Import ToastContainer here
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import LoadingScreen from '../loading'; // Import LoadingScreen
+import LoadingScreen from '../loading';
 
 const CartPage = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -14,8 +14,8 @@ const CartPage = () => {
     contact_info: '',
     address: '',
   });
-  const [loading, setLoading] = useState(false); // Loading state for placing order
-  const [isFetching, setIsFetching] = useState(false); // Loading state for cart items fetch
+  const [loading, setLoading] = useState(false);
+  const [isFetching, setIsFetching] = useState(false);
 
   const token = Cookies.get('Jwt_Token');
   const userId = Cookies.get('userId');
@@ -53,20 +53,30 @@ const CartPage = () => {
 
     try {
       await axios.put(
-        'https://agrobackend-sptw.onrender.com/cart/update',
+        'https://agrobackend-sptw.onrender.com/api/cart/update',
         {
           user_id: userId,
           product_id: productId,
-          quantity: newQuantity,
+          quantity: newQuantity, // Backend must map this to quantity_cart
         },
         {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
 
-      fetchCartItems();
+      // Optimistic update
+      const updatedItems = cartItems.map((item) =>
+        item.product_id === productId
+          ? { ...item, quantity_cart: newQuantity }
+          : item
+      );
+      setCartItems(updatedItems);
+      calculateTotal(updatedItems);
+
+      toast.success('Quantity updated');
     } catch (err) {
       console.error('Error updating cart quantity:', err);
+      toast.error('Failed to update quantity');
     }
   };
 
@@ -134,7 +144,7 @@ const CartPage = () => {
             {cartItems.length > 0 ? (
               cartItems.map((item) => (
                 <div
-                  key={item.product_id}
+                  key={`${item.product_id}-${item.quantity_cart}`}
                   className="bg-white shadow-md p-4 rounded mb-4 flex justify-between items-center"
                 >
                   <div className="flex items-center gap-4">
@@ -224,8 +234,7 @@ const CartPage = () => {
         </div>
       </div>
 
-      {/* Add ToastContainer here */}
-      <ToastContainer /> {/* ToastContainer should be added to show toasts */}
+      <ToastContainer />
     </>
   );
 };

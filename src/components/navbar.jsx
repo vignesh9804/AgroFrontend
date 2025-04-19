@@ -12,6 +12,7 @@ const Navbar = () => {
   const handleLogout = () => {
     Cookies.remove('Jwt_Token');
     Cookies.remove('userRole');
+    Cookies.remove('userId');
     navigate('/login');
   };
 
