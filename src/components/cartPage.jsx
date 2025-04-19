@@ -29,7 +29,7 @@ const CartPage = () => {
       }
 
       const res = await axios.post(
-        'https://agrobackend-sptw.onrender.com/api/cart',
+        'https://agrobackendrender.onrender.com/api/cart',
         { user_id: userId },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -53,7 +53,7 @@ const CartPage = () => {
 
     try {
       await axios.put(
-        'https://agrobackend-sptw.onrender.com/api/cart/update',
+        'https://agrobackendrender.onrender.com/api/cart/update',
         {
           user_id: userId,
           product_id: productId,
@@ -82,7 +82,7 @@ const CartPage = () => {
 
   const handleDeleteItem = async (productId) => {
     try {
-      await axios.delete('https://agrobackend-sptw.onrender.com/api/cart/delete', {
+      await axios.delete('https://agrobackendrender.onrender.com/api/cart/delete', {
         data: { user_id: userId, product_id: productId },
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -104,7 +104,7 @@ const CartPage = () => {
     setLoading(true);
     try {
       await axios.post(
-        'https://agrobackend-sptw.onrender.com/api/orders',
+        'https://agrobackendrender.onrender.com/api/orders',
         {
           user_id: userId,
           delivery_name,

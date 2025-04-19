@@ -24,7 +24,7 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://agrobackend-sptw.onrender.com/api/register', formData);
+      const response = await axios.post('https://agrobackendrender.onrender.com/api/register', formData);
       console.log('User registered successfully:', response.data);
       navigate('/login');
     } catch (err) {

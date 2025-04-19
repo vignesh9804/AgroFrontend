@@ -14,7 +14,7 @@ const AdminOrdersPage = () => {
 
   const fetchOrders = async () => {
     try {
-      const response = await axios.get('https://agrobackend-sptw.onrender.com/api/admin/orders', {
+      const response = await axios.get('https://agrobackendrender.onrender.com/api/admin/orders', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -70,7 +70,7 @@ const AdminOrdersPage = () => {
       // Make sure user_id is included in the request body
   
       const response = await axios.put(
-        `https://agrobackend-sptw.onrender.com/api/admin/orders/${orderId}`,
+        `https://agrobackendrender.onrender.com/api/admin/orders/${orderId}`,
         {
           status: newStatus,
           user:{role:`${userRole}`} // Send user_id in the request body

@@ -31,7 +31,7 @@ const AddNewProduct = () => {
 
     try {
       await axios.post(
-        'https://agrobackend-sptw.onrender.com/api/admin/products',
+        'https://agrobackendrender.onrender.com/api/admin/products',
         {
           name,
           price: parseFloat(price),

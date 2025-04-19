@@ -27,7 +27,7 @@ const ProductsPage = () => {
     const fetchProducts = async () => {
       setIsLoading(true);
       try {
-        const response = await axios.get('https://agrobackend-sptw.onrender.com/api/products', {
+        const response = await axios.get('https://agrobackendrender.onrender.com/api/products', {
           headers: {
             Authorization: `Bearer ${token}`,
           },

@@ -16,7 +16,7 @@ const SingleProduct = ({ product }) => {
 
     try {
       await axios.post(
-        'https://agrobackend-sptw.onrender.com/api/addtocart',
+        'https://agrobackendrender.onrender.com/api/addtocart',
         {
           user_id: userId,
           product_id: product.product_id,

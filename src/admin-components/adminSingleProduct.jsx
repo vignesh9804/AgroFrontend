@@ -19,7 +19,7 @@ const AdminSingleProduct = ({ product }) => {
 
     try {
       const response = await axios.delete(
-        `https://agrobackend-sptw.onrender.com/api/admin/products/${product.product_id}`,
+        `https://agrobackendrender.onrender.com/api/admin/products/${product.product_id}`,
         {
           headers: {
             Authorization: `Bearer ${Cookies.get('Jwt_Token')}`,

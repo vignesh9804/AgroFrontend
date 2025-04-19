@@ -25,7 +25,7 @@ const EditProductPage = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await axios.get(`https://agrobackend-sptw.onrender.com/api/products/${id}`, {
+        const response = await axios.get(`https://agrobackendrender.onrender.com/api/products/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -59,7 +59,7 @@ const EditProductPage = () => {
   const handleSave = async () => {
     try {
       await axios.put(
-        `https://agrobackend-sptw.onrender.com/api/admin/products/${id}`,
+        `https://agrobackendrender.onrender.com/api/admin/products/${id}`,
         {
           name: form.name,
           price: parseFloat(form.price),
