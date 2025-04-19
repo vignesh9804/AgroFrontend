@@ -20,7 +20,7 @@ const OrdersPage = () => {
     const fetchOrders = async () => {
       try {
         const res = await axios.post(
-          'http://localhost:5001/api/myorders',
+          'https://agrobackend-sptw.onrender.com/api/myorders',
           { user_id: userId },
           {
             headers: {

@@ -13,7 +13,7 @@ const AdminBulkOrders = () => {
   const fetchBulkOrders = async () => {
     setLoading(true);
     try {
-      const res = await axios.get('http://localhost:5001/api/admin/bulk-orders', {
+      const res = await axios.get('https://agrobackend-sptw.onrender.com/api/admin/bulk-orders', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -29,7 +29,7 @@ const AdminBulkOrders = () => {
   const handleStatusChange = async (orderId, newStatus) => {
     try {
       await axios.put(
-        `http://localhost:5001/api/admin/orders/${orderId}`,
+        `https://agrobackend-sptw.onrender.com/api/admin/orders/${orderId}`,
         { status: newStatus },
         {
           headers: {

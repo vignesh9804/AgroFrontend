@@ -3,6 +3,8 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import ClipLoader from 'react-spinners/ClipLoader';
 import AdminSingleProduct from './adminSingleProduct';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AdminProductsPage = () => {
   const [products, setProducts] = useState([]);
@@ -105,6 +107,7 @@ const AdminProductsPage = () => {
       ) : (
         <p className="text-center text-gray-600">No products found</p>
       )}
+      <ToastContainer position="top-right" autoClose={3000} />
     </div>
   );
 };

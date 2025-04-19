@@ -33,7 +33,7 @@ const BulkOrderPage = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get("http://localhost:5001/api/products", {
+        const res = await axios.get("https://agrobackend-sptw.onrender.com/api/products", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setProducts(res.data);
@@ -79,7 +79,7 @@ const BulkOrderPage = () => {
     setLoading(true); // Start loading
     try {
       await axios.post(
-        "http://localhost:5001/api/bulk-orders",
+        "https://agrobackend-sptw.onrender.com/api/bulk-orders",
         {
           user_id: userId,
           product_id: selectedProduct,

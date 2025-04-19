@@ -2,7 +2,6 @@ import './App.css';
 import { BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 import Home from './components/home';
 import Login from './components/login';
-import AdminHome from './admin-components/adminHome';
 import NotFound from './components/notfound';
 import Register from './components/register';
 import ProductsPage from './components/productsPage';
@@ -25,7 +24,6 @@ function App() {
       <Routes>
         <Route path="/" Component={Home} />
         <Route path="/login" Component={Login} />
-        <Route path="/admin" Component={AdminHome} />
         <Route path="/register" Component={Register} />
         <Route path="/products" Component={ProtectedRoute(ProductsPage)} />
         <Route path="/cart" Component={ProtectedRoute(CartPage)} />
