@@ -4,6 +4,8 @@ For admin Login:
 Use name: admin
 password: admin
 
+Also deployed backend you can check using repo link : https://github.com/vignesh9804/AgroBackend 
+
 In this project I implemented :
 
 1) Jwt Token for  authentication and authorization
